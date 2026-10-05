@@ -7,10 +7,6 @@
   <title>蘆洲集賢社區長照機構｜參訪預約</title>
 
   <style>
-    /* =========================
-       基本設定
-    ========================= */
-
     * {
       box-sizing: border-box;
     }
@@ -35,19 +31,11 @@
       color: #333;
     }
 
-    /* =========================
-       外層
-    ========================= */
-
     .container {
       width: 92%;
       max-width: 900px;
       margin: 0 auto;
     }
-
-    /* =========================
-       頂部標題
-    ========================= */
 
     .hero {
       background: #5b8c72;
@@ -69,17 +57,9 @@
       font-weight: 500;
     }
 
-    /* =========================
-       主要內容
-    ========================= */
-
     main {
       padding: 35px 0 60px;
     }
-
-    /* =========================
-       說明區
-    ========================= */
 
     .intro {
       background: white;
@@ -94,10 +74,6 @@
       font-size: 22px;
       line-height: 1.9;
     }
-
-    /* =========================
-       注意事項
-    ========================= */
 
     .notice-box {
       background: #fff8e6;
@@ -119,10 +95,6 @@
       line-height: 1.8;
     }
 
-    /* =========================
-       表單
-    ========================= */
-
     .form-card {
       background: white;
       border-radius: 18px;
@@ -142,10 +114,6 @@
       padding-bottom: 10px;
       margin-bottom: 25px;
     }
-
-    /* =========================
-       欄位
-    ========================= */
 
     .form-group {
       margin-bottom: 25px;
@@ -191,10 +159,6 @@
       border-color: #5b8c72;
       box-shadow: 0 0 0 4px rgba(91, 140, 114, 0.15);
     }
-
-    /* =========================
-       單選按鈕
-    ========================= */
 
     .radio-group {
       display: flex;
@@ -245,19 +209,11 @@
       font-weight: 700;
     }
 
-    /* =========================
-       日期提示
-    ========================= */
-
     .help-text {
       margin-top: 8px;
       font-size: 18px;
       color: #666;
     }
-
-    /* =========================
-       時段選擇
-    ========================= */
 
     .time-options {
       display: flex;
@@ -305,10 +261,6 @@
       color: #315c43;
     }
 
-    /* =========================
-       個資提醒
-    ========================= */
-
     .privacy-box {
       background: #f2f6f3;
       border-radius: 12px;
@@ -322,10 +274,6 @@
       font-size: 18px;
       line-height: 1.8;
     }
-
-    /* =========================
-       送出按鈕
-    ========================= */
 
     .submit-button {
       width: 100%;
@@ -354,9 +302,11 @@
       transform: scale(0.98);
     }
 
-    /* =========================
-       錯誤訊息
-    ========================= */
+    .submit-button:disabled {
+      background: #9aaea1;
+      cursor: not-allowed;
+      transform: none;
+    }
 
     .error-message {
       display: none;
@@ -373,10 +323,6 @@
       font-size: 20px;
       font-weight: 600;
     }
-
-    /* =========================
-       成功畫面
-    ========================= */
 
     .success-screen {
       display: none;
@@ -426,20 +372,12 @@
       cursor: pointer;
     }
 
-    /* =========================
-       頁尾
-    ========================= */
-
     footer {
       text-align: center;
       padding: 25px 15px;
       color: #666;
       font-size: 18px;
     }
-
-    /* =========================
-       手機版
-    ========================= */
 
     @media (max-width: 600px) {
 
@@ -547,10 +485,6 @@
 
 <body>
 
-  <!-- =========================
-       網站標題
-  ========================== -->
-
   <header class="hero">
     <div class="container">
       <h1>蘆洲集賢社區長照機構</h1>
@@ -558,13 +492,8 @@
     </div>
   </header>
 
-
   <main>
     <div class="container">
-
-      <!-- =========================
-           開頭說明
-      ========================== -->
 
       <section class="intro">
         <p>
@@ -572,11 +501,6 @@
           請協助填寫以下基本資料。
         </p>
       </section>
-
-
-      <!-- =========================
-           注意事項
-      ========================== -->
 
       <section class="notice-box">
 
@@ -595,22 +519,13 @@
 
       </section>
 
-
-      <!-- =========================
-           預約表單
-      ========================== -->
-
       <section class="form-card">
 
         <form id="visitForm">
 
-          <!-- 長輩資料 -->
-
           <div class="section">
 
             <h2 class="section-title">一、長輩基本資料</h2>
-
-            <!-- 長輩姓名 -->
 
             <div class="form-group">
 
@@ -628,9 +543,6 @@
               >
 
             </div>
-
-
-            <!-- 長輩性別 -->
 
             <div class="form-group">
 
@@ -665,9 +577,6 @@
               </div>
 
             </div>
-
-
-            <!-- 1966 -->
 
             <div class="form-group">
 
@@ -715,15 +624,9 @@
 
           </div>
 
-
-          <!-- 聯絡人資料 -->
-
           <div class="section">
 
             <h2 class="section-title">二、聯絡人資料</h2>
-
-
-            <!-- 聯絡人姓名 -->
 
             <div class="form-group">
 
@@ -742,9 +645,6 @@
 
             </div>
 
-
-            <!-- 電話 -->
-
             <div class="form-group">
 
               <label class="main-label" for="phone">
@@ -758,13 +658,11 @@
                 name="phone"
                 placeholder="例如：0912345678"
                 inputmode="tel"
+                maxlength="10"
                 required
               >
 
             </div>
-
-
-            <!-- 關係 -->
 
             <div class="form-group">
 
@@ -796,15 +694,9 @@
 
           </div>
 
-
-          <!-- 參訪時間 -->
-
           <div class="section">
 
             <h2 class="section-title">三、參訪時間</h2>
-
-
-            <!-- 日期 -->
 
             <div class="form-group">
 
@@ -825,9 +717,6 @@
               </div>
 
             </div>
-
-
-            <!-- 時段 -->
 
             <div class="form-group">
 
@@ -854,7 +743,6 @@
 
                 </div>
 
-
                 <div class="time-option">
 
                   <input
@@ -876,9 +764,6 @@
 
           </div>
 
-
-          <!-- 隱私提醒 -->
-
           <div class="privacy-box">
 
             <p>
@@ -888,21 +773,16 @@
 
           </div>
 
-
-          <!-- 錯誤訊息 -->
-
           <div
             id="errorMessage"
             class="error-message"
           >
           </div>
 
-
-          <!-- 送出 -->
-
           <button
             type="submit"
             class="submit-button"
+            id="submitButton"
           >
             確認送出參訪預約
           </button>
@@ -910,11 +790,6 @@
         </form>
 
       </section>
-
-
-      <!-- =========================
-           成功畫面
-      ========================== -->
 
       <section
         id="successScreen"
@@ -950,37 +825,22 @@
     </div>
   </main>
 
-
-  <!-- =========================
-       頁尾
-  ========================== -->
-
   <footer>
     蘆洲集賢社區長照機構
   </footer>
 
-
   <script>
 
     /* =====================================
-       Google Apps Script 設定
-       
-       如果之後要把資料存到 Google 試算表，
-       將 Google Apps Script 網址貼到這裡。
-
-       例如：
-       const GOOGLE_SCRIPT_URL =
-       "https://script.google.com/macros/s/XXXX/exec";
-
-       目前先留空即可。
+       Google Apps Script 網址
     ====================================== */
 
-    const GOOGLE_SCRIPT_URL = "";
+    const GOOGLE_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbwLGb53T55KNckLfWrMlLKYfFRfUGgv4MZjHrcugp3J2Dnn2bY0zhvH6gEdrKDKCauU/exec";
 
 
     /* =====================================
        設定日期
-       
        不允許選擇今天以前的日期
     ====================================== */
 
@@ -1006,7 +866,7 @@
 
 
     /* =====================================
-       表單
+       取得表單元件
     ====================================== */
 
     const form =
@@ -1017,6 +877,9 @@
 
     const successScreen =
       document.getElementById("successScreen");
+
+    const submitButton =
+      document.getElementById("submitButton");
 
 
     /* =====================================
@@ -1029,11 +892,14 @@
 
         event.preventDefault();
 
-
-        /* 清除之前錯誤訊息 */
-
         errorMessage.style.display = "none";
         errorMessage.textContent = "";
+
+
+        /* 防止重複送出 */
+
+        submitButton.disabled = true;
+        submitButton.textContent = "資料送出中，請稍候…";
 
 
         /* ================================
@@ -1076,42 +942,33 @@
         ================================= */
 
         if (!elderName) {
-
+          resetSubmitButton();
           showError("請輸入長輩姓名。");
           return;
-
         }
-
 
         if (!gender) {
-
+          resetSubmitButton();
           showError("請選擇長輩性別。");
           return;
-
         }
-
 
         if (!assessment) {
-
+          resetSubmitButton();
           showError("請選擇是否有通過1966評估。");
           return;
-
         }
-
 
         if (!contactName) {
-
+          resetSubmitButton();
           showError("請輸入聯絡人姓名。");
           return;
-
         }
 
-
         if (!phone) {
-
+          resetSubmitButton();
           showError("請輸入聯絡電話。");
           return;
-
         }
 
 
@@ -1124,28 +981,26 @@
 
         if (!phonePattern.test(phone)) {
 
+          resetSubmitButton();
+
           showError(
             "請輸入正確的手機號碼，例如：0912345678。"
           );
 
           return;
-
         }
 
 
         if (!relationship) {
-
+          resetSubmitButton();
           showError("請選擇與長輩的關係。");
           return;
-
         }
 
-
         if (!selectedDate) {
-
+          resetSubmitButton();
           showError("請選擇參訪日期。");
           return;
-
         }
 
 
@@ -1155,20 +1010,25 @@
 
         if (selectedDate < todayString) {
 
+          resetSubmitButton();
+
           showError(
             "參訪日期不能選擇過去的日期，請重新選擇。"
           );
 
           return;
-
         }
 
 
         if (!visitTime) {
 
-          showError("請選擇參觀時間。");
-          return;
+          resetSubmitButton();
 
+          showError(
+            "請選擇參觀時間。"
+          );
+
+          return;
         }
 
 
@@ -1195,71 +1055,61 @@
           visitTime: visitTime.value,
 
           submittedAt:
-            new Date().toLocaleString(
-              "zh-TW"
-            )
+            new Date().toLocaleString("zh-TW")
 
         };
 
 
         /* =================================
-           如果有設定 Google Apps Script
-           就送到 Google 試算表
+           傳送到 Google Apps Script
         ================================== */
 
-        if (GOOGLE_SCRIPT_URL) {
+        try {
 
-          try {
+          await fetch(
+            GOOGLE_SCRIPT_URL,
+            {
+              method: "POST",
 
-            const response =
-              await fetch(
-                GOOGLE_SCRIPT_URL,
-                {
-                  method: "POST",
+              mode: "no-cors",
 
-                  mode: "no-cors",
+              headers: {
+                "Content-Type": "application/json"
+              },
 
-                  headers: {
-                    "Content-Type":
-                      "application/json"
-                  },
-
-                  body:
-                    JSON.stringify(formData)
-                }
-              );
-
-
-            /* 顯示成功 */
-
-            showSuccess();
-
-          } catch (error) {
-
-            console.error(error);
-
-            showError(
-              "資料送出時發生問題，請稍後再試，或直接聯絡機構。"
-            );
-
-          }
-
-        } else {
-
-          /* =================================
-             尚未設定 Google Apps Script
-             
-             目前先顯示成功畫面
-             但資料不會永久儲存
-          ================================== */
-
-          console.log(
-            "目前尚未設定 Google Apps Script。"
+              body:
+                JSON.stringify(formData)
+            }
           );
 
-          console.log(formData);
+
+          /*
+             no-cors 模式下，
+             瀏覽器無法讀取 Google Apps Script 回傳內容。
+
+             但請求會送出，
+             Google Apps Script 會寫入 Google 試算表。
+          */
+
+          console.log(
+            "預約資料已送出：",
+            formData
+          );
 
           showSuccess();
+
+        } catch (error) {
+
+          console.error(
+            "送出失敗：",
+            error
+          );
+
+          resetSubmitButton();
+
+          showError(
+            "資料送出時發生問題，請稍後再試，或直接聯絡機構。"
+          );
 
         }
 
@@ -1286,6 +1136,20 @@
         behavior:
           "smooth"
       });
+
+    }
+
+
+    /* =====================================
+       恢復送出按鈕
+    ====================================== */
+
+    function resetSubmitButton() {
+
+      submitButton.disabled = false;
+
+      submitButton.textContent =
+        "確認送出參訪預約";
 
     }
 
@@ -1326,6 +1190,8 @@
 
       visitDate.min =
         todayString;
+
+      resetSubmitButton();
 
       window.scrollTo({
         top: 0,
