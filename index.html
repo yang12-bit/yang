@@ -217,13 +217,6 @@
       color: #666;
     }
 
-    .age-help {
-      margin-top: 8px;
-      font-size: 18px;
-      color: #8a5a00;
-      font-weight: 600;
-    }
-
     .time-options {
       display: flex;
       flex-direction: column;
@@ -331,45 +324,6 @@
 
       font-size: 20px;
       font-weight: 600;
-    }
-
-    /* =========================
-       年齡不符合畫面
-    ========================= */
-
-    .age-rejected-screen {
-      display: none;
-
-      text-align: center;
-
-      background: white;
-      border-radius: 18px;
-
-      padding: 55px 30px;
-
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .age-rejected-icon {
-      font-size: 65px;
-      margin-bottom: 20px;
-    }
-
-    .age-rejected-screen h2 {
-      font-size: 34px;
-      color: #a93226;
-      margin: 0 0 20px 0;
-    }
-
-    .age-rejected-screen p {
-      font-size: 21px;
-      line-height: 1.9;
-      margin: 12px 0;
-    }
-
-    .age-rejected-screen strong {
-      color: #a93226;
-      font-size: 24px;
     }
 
     .success-screen {
@@ -517,33 +471,22 @@
         font-size: 24px;
       }
 
-      .success-screen,
-      .age-rejected-screen {
+      .success-screen {
         padding: 40px 20px;
       }
 
-      .success-screen h2,
-      .age-rejected-screen h2 {
+      .success-screen h2 {
         font-size: 29px;
       }
 
-      .success-screen p,
-      .age-rejected-screen p {
+      .success-screen p {
         font-size: 19px;
-      }
-
-      .age-rejected-screen strong {
-        font-size: 22px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- =========================
-       網站標題
-  ========================== -->
 
   <header class="hero">
     <div class="container">
@@ -556,10 +499,6 @@
   <main>
     <div class="container">
 
-      <!-- =========================
-           開頭說明
-      ========================== -->
-
       <section class="intro">
         <p>
           為了讓您更了解我們的環境與服務，並為長輩安排合適的參觀與諮詢時段，
@@ -567,10 +506,6 @@
         </p>
       </section>
 
-
-      <!-- =========================
-           注意事項
-      ========================== -->
 
       <section class="notice-box">
 
@@ -589,23 +524,17 @@
 
         <p>
           <strong>服務年齡：</strong>
-          本機構目前接受65歲以上長輩的參訪預約。
+          歡迎有需求的長輩及家屬預約參訪。
         </p>
 
       </section>
 
 
-      <!-- =========================
-           預約表單
-      ========================== -->
-
       <section class="form-card">
 
         <form id="visitForm">
 
-          <!-- =========================
-               一、長輩資料
-          ========================== -->
+          <!-- 一、長輩資料 -->
 
           <div class="section">
 
@@ -648,11 +577,10 @@
                 placeholder="請輸入長輩年齡"
                 min="1"
                 max="120"
+                step="1"
                 inputmode="numeric"
                 required
               >
-
-              
 
             </div>
 
@@ -772,37 +700,14 @@
                   請選擇1966評估等級
                 </option>
 
-                <option value="2級">
-                  2級
-                </option>
-
-                <option value="3級">
-                  3級
-                </option>
-
-                <option value="4級">
-                  4級
-                </option>
-
-                <option value="5級">
-                  5級
-                </option>
-
-                <option value="6級">
-                  6級
-                </option>
-
-                <option value="7級">
-                  7級
-                </option>
-
-                <option value="8級">
-                  8級
-                </option>
-
-                <option value="不清楚">
-                  不清楚
-                </option>
+                <option value="2級">2級</option>
+                <option value="3級">3級</option>
+                <option value="4級">4級</option>
+                <option value="5級">5級</option>
+                <option value="6級">6級</option>
+                <option value="7級">7級</option>
+                <option value="8級">8級</option>
+                <option value="不清楚">不清楚</option>
 
               </select>
 
@@ -811,16 +716,12 @@
           </div>
 
 
-          <!-- =========================
-               二、聯絡人資料
-          ========================== -->
+          <!-- 二、聯絡人資料 -->
 
           <div class="section">
 
             <h2 class="section-title">二、聯絡人資料</h2>
 
-
-            <!-- 聯絡人姓名 -->
 
             <div class="form-group">
 
@@ -839,8 +740,6 @@
 
             </div>
 
-
-            <!-- 電話 -->
 
             <div class="form-group">
 
@@ -862,8 +761,6 @@
             </div>
 
 
-            <!-- 關係 -->
-
             <div class="form-group">
 
               <label class="main-label" for="relationship">
@@ -881,41 +778,15 @@
                   請選擇與長輩的關係
                 </option>
 
-                <option value="兒子">
-                  兒子
-                </option>
-
-                <option value="女兒">
-                  女兒
-                </option>
-
-                <option value="媳婦">
-                  媳婦
-                </option>
-
-                <option value="女婿">
-                  女婿
-                </option>
-
-                <option value="配偶">
-                  配偶
-                </option>
-
-                <option value="孫子">
-                  孫子
-                </option>
-
-                <option value="孫女">
-                  孫女
-                </option>
-
-                <option value="其他親屬">
-                  其他親屬
-                </option>
-
-                <option value="朋友">
-                  朋友
-                </option>
+                <option value="兒子">兒子</option>
+                <option value="女兒">女兒</option>
+                <option value="媳婦">媳婦</option>
+                <option value="女婿">女婿</option>
+                <option value="配偶">配偶</option>
+                <option value="孫子">孫子</option>
+                <option value="孫女">孫女</option>
+                <option value="其他親屬">其他親屬</option>
+                <option value="朋友">朋友</option>
 
               </select>
 
@@ -924,16 +795,42 @@
           </div>
 
 
-          <!-- =========================
-               三、參訪時間
-          ========================== -->
+          <!-- 三、參訪時間 -->
 
           <div class="section">
 
             <h2 class="section-title">三、參訪時間</h2>
 
 
-            <!-- 日期 -->
+            <!-- 參訪人數 -->
+
+            <div class="form-group">
+
+              <label class="main-label" for="visitorCount">
+                參訪人數
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="number"
+                id="visitorCount"
+                name="visitorCount"
+                placeholder="請輸入參訪人數，例如：2"
+                min="1"
+                max="20"
+                step="1"
+                inputmode="numeric"
+                required
+              >
+
+              <div class="help-text">
+                請填寫此次參訪的總人數。
+              </div>
+
+            </div>
+
+
+            <!-- 參訪日期 -->
 
             <div class="form-group">
 
@@ -1006,9 +903,7 @@
           </div>
 
 
-          <!-- =========================
-               個資提醒
-          ========================== -->
+          <!-- 個資提醒 -->
 
           <div class="privacy-box">
 
@@ -1025,8 +920,7 @@
           <div
             id="errorMessage"
             class="error-message"
-          >
-          </div>
+          ></div>
 
 
           <!-- 送出 -->
@@ -1044,58 +938,7 @@
       </section>
 
 
-      <!-- =========================
-           年齡不符合畫面
-      ========================== -->
-
-      <section
-        id="ageRejectedScreen"
-        class="age-rejected-screen"
-      >
-
-        <div class="age-rejected-icon">
-          ⚠️
-        </div>
-
-        <h2>
-          本次無法完成預約
-        </h2>
-
-        <p>
-          感謝您填寫參訪資料。
-        </p>
-
-        <p>
-          本機構目前接受
-        </p>
-
-        <p>
-          <strong>65歲、65歲以上</strong>
-        </p>
-
-        <p>
-          長輩的參訪預約。
-        </p>
-
-        <p>
-          您所填寫的長輩年齡未符合目前的服務條件，
-          因此本次沒有預約成功。
-        </p>
-
-        <button
-          type="button"
-          class="back-button"
-          onclick="backToFormFromRejected()"
-        >
-          返回預約表單
-        </button>
-
-      </section>
-
-
-      <!-- =========================
-           成功畫面
-      ========================== -->
+      <!-- 成功畫面 -->
 
       <section
         id="successScreen"
@@ -1131,10 +974,6 @@
     </div>
   </main>
 
-
-  <!-- =========================
-       頁尾
-  ========================== -->
 
   <footer>
     蘆洲集賢社區長照機構
@@ -1190,9 +1029,6 @@
 
     const successScreen =
       document.getElementById("successScreen");
-
-    const ageRejectedScreen =
-      document.getElementById("ageRejectedScreen");
 
     const submitButton =
       document.getElementById("submitButton");
@@ -1284,6 +1120,14 @@
             .value;
 
 
+        const visitorCount =
+          Number(
+            document
+              .getElementById("visitorCount")
+              .value
+          );
+
+
         const selectedDate =
           visitDate.value;
 
@@ -1312,6 +1156,7 @@
 
         /* =================================
            年齡檢查
+           不再限制65歲
         ================================= */
 
         if (
@@ -1325,20 +1170,6 @@
           showError(
             "請輸入正確的長輩年齡。"
           );
-
-          return;
-        }
-
-
-        /*
-         * 65歲以下拒絕預約
-         *
-         * 只有 65 歲及以上可以繼續
-         */
-
-        if (elderAge < 65) {
-
-          showAgeRejected();
 
           return;
         }
@@ -1438,6 +1269,26 @@
         }
 
 
+        /* =================================
+           參訪人數檢查
+        ================================= */
+
+        if (
+          !visitorCount ||
+          visitorCount < 1 ||
+          visitorCount > 20
+        ) {
+
+          resetSubmitButton();
+
+          showError(
+            "請輸入正確的參訪人數，1～20人。"
+          );
+
+          return;
+        }
+
+
         if (!selectedDate) {
 
           resetSubmitButton();
@@ -1509,6 +1360,9 @@
 
           relationship:
             relationship,
+
+          visitorCount:
+            visitorCount,
 
           visitDate:
             selectedDate,
@@ -1625,34 +1479,7 @@
       form.parentElement.style.display =
         "none";
 
-      ageRejectedScreen.style.display =
-        "none";
-
       successScreen.style.display =
-        "block";
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-    /* =====================================
-       顯示年齡不符合
-    ====================================== */
-
-    function showAgeRejected() {
-
-      form.parentElement.style.display =
-        "none";
-
-      successScreen.style.display =
-        "none";
-
-      ageRejectedScreen.style.display =
         "block";
 
 
@@ -1669,43 +1496,6 @@
     ====================================== */
 
     function backToForm() {
-
-      successScreen.style.display =
-        "none";
-
-      ageRejectedScreen.style.display =
-        "none";
-
-      form.parentElement.style.display =
-        "block";
-
-
-      form.reset();
-
-
-      visitDate.min =
-        todayString;
-
-
-      resetSubmitButton();
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    }
-
-
-    /* =====================================
-       從年齡拒絕畫面返回
-    ====================================== */
-
-    function backToFormFromRejected() {
-
-      ageRejectedScreen.style.display =
-        "none";
 
       successScreen.style.display =
         "none";
