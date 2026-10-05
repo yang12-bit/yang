@@ -134,6 +134,7 @@
 
     input[type="text"],
     input[type="tel"],
+    input[type="number"],
     input[type="date"],
     select {
       width: 100%;
@@ -154,6 +155,7 @@
 
     input[type="text"]:focus,
     input[type="tel"]:focus,
+    input[type="number"]:focus,
     input[type="date"]:focus,
     select:focus {
       border-color: #5b8c72;
@@ -213,6 +215,13 @@
       margin-top: 8px;
       font-size: 18px;
       color: #666;
+    }
+
+    .age-help {
+      margin-top: 8px;
+      font-size: 18px;
+      color: #8a5a00;
+      font-weight: 600;
     }
 
     .time-options {
@@ -322,6 +331,45 @@
 
       font-size: 20px;
       font-weight: 600;
+    }
+
+    /* =========================
+       年齡不符合畫面
+    ========================= */
+
+    .age-rejected-screen {
+      display: none;
+
+      text-align: center;
+
+      background: white;
+      border-radius: 18px;
+
+      padding: 55px 30px;
+
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .age-rejected-icon {
+      font-size: 65px;
+      margin-bottom: 20px;
+    }
+
+    .age-rejected-screen h2 {
+      font-size: 34px;
+      color: #a93226;
+      margin: 0 0 20px 0;
+    }
+
+    .age-rejected-screen p {
+      font-size: 21px;
+      line-height: 1.9;
+      margin: 12px 0;
+    }
+
+    .age-rejected-screen strong {
+      color: #a93226;
+      font-size: 24px;
     }
 
     .success-screen {
@@ -439,6 +487,7 @@
 
       input[type="text"],
       input[type="tel"],
+      input[type="number"],
       input[type="date"],
       select {
         min-height: 60px;
@@ -468,22 +517,33 @@
         font-size: 24px;
       }
 
-      .success-screen {
+      .success-screen,
+      .age-rejected-screen {
         padding: 40px 20px;
       }
 
-      .success-screen h2 {
+      .success-screen h2,
+      .age-rejected-screen h2 {
         font-size: 29px;
       }
 
-      .success-screen p {
+      .success-screen p,
+      .age-rejected-screen p {
         font-size: 19px;
+      }
+
+      .age-rejected-screen strong {
+        font-size: 22px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- =========================
+       網站標題
+  ========================== -->
 
   <header class="hero">
     <div class="container">
@@ -492,8 +552,13 @@
     </div>
   </header>
 
+
   <main>
     <div class="container">
+
+      <!-- =========================
+           開頭說明
+      ========================== -->
 
       <section class="intro">
         <p>
@@ -501,6 +566,11 @@
           請協助填寫以下基本資料。
         </p>
       </section>
+
+
+      <!-- =========================
+           注意事項
+      ========================== -->
 
       <section class="notice-box">
 
@@ -517,15 +587,32 @@
           請您見諒並依預約時間準時或稍候。
         </p>
 
+        <p>
+          <strong>服務年齡：</strong>
+          本機構目前接受65歲以上長輩的參訪預約。
+        </p>
+
       </section>
+
+
+      <!-- =========================
+           預約表單
+      ========================== -->
 
       <section class="form-card">
 
         <form id="visitForm">
 
+          <!-- =========================
+               一、長輩資料
+          ========================== -->
+
           <div class="section">
 
             <h2 class="section-title">一、長輩基本資料</h2>
+
+
+            <!-- 長輩姓名 -->
 
             <div class="form-group">
 
@@ -544,6 +631,36 @@
 
             </div>
 
+
+            <!-- 長輩年齡 -->
+
+            <div class="form-group">
+
+              <label class="main-label" for="elderAge">
+                長輩年齡
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="number"
+                id="elderAge"
+                name="elderAge"
+                placeholder="請輸入長輩年齡"
+                min="1"
+                max="120"
+                inputmode="numeric"
+                required
+              >
+
+              <div class="age-help">
+                本機構接受65歲、65歲以上長輩的預約。
+              </div>
+
+            </div>
+
+
+            <!-- 長輩性別 -->
+
             <div class="form-group">
 
               <label class="main-label">
@@ -554,6 +671,7 @@
               <div class="radio-group">
 
                 <div class="radio-option">
+
                   <input
                     type="radio"
                     id="male"
@@ -561,22 +679,35 @@
                     value="男"
                     required
                   >
-                  <label for="male">男</label>
+
+                  <label for="male">
+                    男
+                  </label>
+
                 </div>
 
+
                 <div class="radio-option">
+
                   <input
                     type="radio"
                     id="female"
                     name="gender"
                     value="女"
                   >
-                  <label for="female">女</label>
+
+                  <label for="female">
+                    女
+                  </label>
+
                 </div>
 
               </div>
 
             </div>
+
+
+            <!-- 是否通過1966 -->
 
             <div class="form-group">
 
@@ -588,6 +719,7 @@
               <div class="radio-group">
 
                 <div class="radio-option">
+
                   <input
                     type="radio"
                     id="assessmentYes"
@@ -595,38 +727,102 @@
                     value="是"
                     required
                   >
-                  <label for="assessmentYes">是</label>
+
+                  <label for="assessmentYes">
+                    是
+                  </label>
+
                 </div>
 
+
                 <div class="radio-option">
+
                   <input
                     type="radio"
                     id="assessmentNo"
                     name="assessment"
                     value="否"
                   >
-                  <label for="assessmentNo">否</label>
-                </div>
 
-                <div class="radio-option">
-                  <input
-                    type="radio"
-                    id="assessmentUnknown"
-                    name="assessment"
-                    value="不清楚"
-                  >
-                  <label for="assessmentUnknown">不清楚</label>
+                  <label for="assessmentNo">
+                    否
+                  </label>
+
                 </div>
 
               </div>
 
             </div>
 
+
+            <!-- 1966評估等級 -->
+
+            <div class="form-group">
+
+              <label class="main-label" for="assessmentLevel">
+                1966評估等級
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="assessmentLevel"
+                name="assessmentLevel"
+                required
+              >
+
+                <option value="">
+                  請選擇1966評估等級
+                </option>
+
+                <option value="2級">
+                  2級
+                </option>
+
+                <option value="3級">
+                  3級
+                </option>
+
+                <option value="4級">
+                  4級
+                </option>
+
+                <option value="5級">
+                  5級
+                </option>
+
+                <option value="6級">
+                  6級
+                </option>
+
+                <option value="7級">
+                  7級
+                </option>
+
+                <option value="8級">
+                  8級
+                </option>
+
+                <option value="不清楚">
+                  不清楚
+                </option>
+
+              </select>
+
+            </div>
+
           </div>
+
+
+          <!-- =========================
+               二、聯絡人資料
+          ========================== -->
 
           <div class="section">
 
             <h2 class="section-title">二、聯絡人資料</h2>
+
+
+            <!-- 聯絡人姓名 -->
 
             <div class="form-group">
 
@@ -644,6 +840,9 @@
               >
 
             </div>
+
+
+            <!-- 電話 -->
 
             <div class="form-group">
 
@@ -664,6 +863,9 @@
 
             </div>
 
+
+            <!-- 關係 -->
+
             <div class="form-group">
 
               <label class="main-label" for="relationship">
@@ -677,15 +879,41 @@
                 required
               >
 
-                <option value="">請選擇與長輩的關係</option>
-                <option value="兒子">兒子</option>
-                <option value="女兒">女兒</option>
-                <option value="媳婦">媳婦</option>
-                <option value="女婿">女婿</option>
-                <option value="配偶">配偶</option>
-                <option value="孫子">孫子</option>
-                <option value="孫女">孫女</option>
-                <option value="其他親屬">其他親屬</option>
+                <option value="">
+                  請選擇與長輩的關係
+                </option>
+
+                <option value="兒子">
+                  兒子
+                </option>
+
+                <option value="女兒">
+                  女兒
+                </option>
+
+                <option value="媳婦">
+                  媳婦
+                </option>
+
+                <option value="女婿">
+                  女婿
+                </option>
+
+                <option value="配偶">
+                  配偶
+                </option>
+
+                <option value="孫子">
+                  孫子
+                </option>
+
+                <option value="孫女">
+                  孫女
+                </option>
+
+                <option value="其他親屬">
+                  其他親屬
+                </option>
 
               </select>
 
@@ -693,9 +921,17 @@
 
           </div>
 
+
+          <!-- =========================
+               三、參訪時間
+          ========================== -->
+
           <div class="section">
 
             <h2 class="section-title">三、參訪時間</h2>
+
+
+            <!-- 日期 -->
 
             <div class="form-group">
 
@@ -716,6 +952,9 @@
               </div>
 
             </div>
+
+
+            <!-- 時段 -->
 
             <div class="form-group">
 
@@ -742,6 +981,7 @@
 
                 </div>
 
+
                 <div class="time-option">
 
                   <input
@@ -763,6 +1003,11 @@
 
           </div>
 
+
+          <!-- =========================
+               個資提醒
+          ========================== -->
+
           <div class="privacy-box">
 
             <p>
@@ -772,11 +1017,17 @@
 
           </div>
 
+
+          <!-- 錯誤訊息 -->
+
           <div
             id="errorMessage"
             class="error-message"
           >
           </div>
+
+
+          <!-- 送出 -->
 
           <button
             type="submit"
@@ -789,6 +1040,60 @@
         </form>
 
       </section>
+
+
+      <!-- =========================
+           年齡不符合畫面
+      ========================== -->
+
+      <section
+        id="ageRejectedScreen"
+        class="age-rejected-screen"
+      >
+
+        <div class="age-rejected-icon">
+          ⚠️
+        </div>
+
+        <h2>
+          本次無法完成預約
+        </h2>
+
+        <p>
+          感謝您填寫參訪資料。
+        </p>
+
+        <p>
+          本機構目前接受
+        </p>
+
+        <p>
+          <strong>65歲、65歲以上</strong>
+        </p>
+
+        <p>
+          長輩的參訪預約。
+        </p>
+
+        <p>
+          您所填寫的長輩年齡未符合目前的服務條件，
+          因此本次沒有預約成功。
+        </p>
+
+        <button
+          type="button"
+          class="back-button"
+          onclick="backToFormFromRejected()"
+        >
+          返回預約表單
+        </button>
+
+      </section>
+
+
+      <!-- =========================
+           成功畫面
+      ========================== -->
 
       <section
         id="successScreen"
@@ -824,9 +1129,15 @@
     </div>
   </main>
 
+
+  <!-- =========================
+       頁尾
+  ========================== -->
+
   <footer>
     蘆洲集賢社區長照機構
   </footer>
+
 
   <script>
 
@@ -861,7 +1172,8 @@
     const todayString =
       `${year}-${month}-${day}`;
 
-    visitDate.min = todayString;
+    visitDate.min =
+      todayString;
 
 
     /* =====================================
@@ -877,6 +1189,9 @@
     const successScreen =
       document.getElementById("successScreen");
 
+    const ageRejectedScreen =
+      document.getElementById("ageRejectedScreen");
+
     const submitButton =
       document.getElementById("submitButton");
 
@@ -891,44 +1206,85 @@
 
         event.preventDefault();
 
-        errorMessage.style.display = "none";
-        errorMessage.textContent = "";
+
+        /* 清除錯誤 */
+
+        errorMessage.style.display =
+          "none";
+
+        errorMessage.textContent =
+          "";
 
 
         /* 防止重複送出 */
 
-        submitButton.disabled = true;
-        submitButton.textContent = "資料送出中，請稍候…";
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "資料檢查中，請稍候…";
 
 
-        /* ================================
+        /* =================================
            取得資料
         ================================= */
 
         const elderName =
-          document.getElementById("elderName").value.trim();
+          document
+            .getElementById("elderName")
+            .value
+            .trim();
+
+
+        const elderAge =
+          Number(
+            document
+              .getElementById("elderAge")
+              .value
+          );
+
 
         const gender =
           document.querySelector(
             'input[name="gender"]:checked'
           );
 
+
         const assessment =
           document.querySelector(
             'input[name="assessment"]:checked'
           );
 
+
+        const assessmentLevel =
+          document
+            .getElementById("assessmentLevel")
+            .value;
+
+
         const contactName =
-          document.getElementById("contactName").value.trim();
+          document
+            .getElementById("contactName")
+            .value
+            .trim();
+
 
         const phone =
-          document.getElementById("phone").value.trim();
+          document
+            .getElementById("phone")
+            .value
+            .trim();
+
 
         const relationship =
-          document.getElementById("relationship").value;
+          document
+            .getElementById("relationship")
+            .value;
+
 
         const selectedDate =
           visitDate.value;
+
 
         const visitTime =
           document.querySelector(
@@ -936,49 +1292,127 @@
           );
 
 
-        /* ================================
+        /* =================================
            基本檢查
         ================================= */
 
         if (!elderName) {
+
           resetSubmitButton();
-          showError("請輸入長輩姓名。");
+
+          showError(
+            "請輸入長輩姓名。"
+          );
+
           return;
         }
+
+
+        /* =================================
+           年齡檢查
+        ================================= */
+
+        if (
+          !elderAge ||
+          elderAge < 1 ||
+          elderAge > 120
+        ) {
+
+          resetSubmitButton();
+
+          showError(
+            "請輸入正確的長輩年齡。"
+          );
+
+          return;
+        }
+
+
+        /*
+         * 65歲以下拒絕預約
+         *
+         * 只有 65 歲及以上可以繼續
+         */
+
+        if (elderAge < 65) {
+
+          showAgeRejected();
+
+          return;
+        }
+
 
         if (!gender) {
+
           resetSubmitButton();
-          showError("請選擇長輩性別。");
+
+          showError(
+            "請選擇長輩性別。"
+          );
+
           return;
         }
+
 
         if (!assessment) {
+
           resetSubmitButton();
-          showError("請選擇是否有通過1966評估。");
+
+          showError(
+            "請選擇是否有通過1966評估。"
+          );
+
           return;
         }
+
+
+        if (!assessmentLevel) {
+
+          resetSubmitButton();
+
+          showError(
+            "請選擇1966評估等級。"
+          );
+
+          return;
+        }
+
 
         if (!contactName) {
+
           resetSubmitButton();
-          showError("請輸入聯絡人姓名。");
+
+          showError(
+            "請輸入聯絡人姓名。"
+          );
+
           return;
         }
+
 
         if (!phone) {
+
           resetSubmitButton();
-          showError("請輸入聯絡電話。");
+
+          showError(
+            "請輸入聯絡電話。"
+          );
+
           return;
         }
 
 
-        /* ================================
+        /* =================================
            電話格式檢查
         ================================= */
 
         const phonePattern =
           /^09\d{8}$/;
 
-        if (!phonePattern.test(phone)) {
+
+        if (
+          !phonePattern.test(phone)
+        ) {
 
           resetSubmitButton();
 
@@ -991,23 +1425,36 @@
 
 
         if (!relationship) {
+
           resetSubmitButton();
-          showError("請選擇與長輩的關係。");
+
+          showError(
+            "請選擇與長輩的關係。"
+          );
+
           return;
         }
+
 
         if (!selectedDate) {
+
           resetSubmitButton();
-          showError("請選擇參訪日期。");
+
+          showError(
+            "請選擇參訪日期。"
+          );
+
           return;
         }
 
 
-        /* ================================
-           檢查日期
+        /* =================================
+           日期檢查
         ================================= */
 
-        if (selectedDate < todayString) {
+        if (
+          selectedDate < todayString
+        ) {
 
           resetSubmitButton();
 
@@ -1031,37 +1478,52 @@
         }
 
 
-        /* ================================
+        /* =================================
            整理資料
         ================================= */
 
         const formData = {
 
-          elderName: elderName,
+          elderName:
+            elderName,
 
-          gender: gender.value,
+          elderAge:
+            elderAge,
 
-          assessment: assessment.value,
+          gender:
+            gender.value,
 
-          contactName: contactName,
+          assessment:
+            assessment.value,
 
-          phone: phone,
+          assessmentLevel:
+            assessmentLevel,
 
-          relationship: relationship,
+          contactName:
+            contactName,
 
-          visitDate: selectedDate,
+          phone:
+            phone,
 
-          visitTime: visitTime.value,
+          relationship:
+            relationship,
+
+          visitDate:
+            selectedDate,
+
+          visitTime:
+            visitTime.value,
 
           submittedAt:
-            new Date().toLocaleString("zh-TW")
+            new Date()
+              .toLocaleString("zh-TW")
 
         };
 
 
         /* =================================
-           傳送到 Google Apps Script
-        ================================== */
+           傳送 Google Apps Script
+        ================================= */
 
         try {
 
@@ -1073,7 +1535,8 @@
               mode: "no-cors",
 
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type":
+                  "application/json"
               },
 
               body:
@@ -1082,20 +1545,14 @@
           );
 
 
-          /*
-             no-cors 模式下，
-             瀏覽器無法讀取 Google Apps Script 回傳內容。
-
-             但請求會送出，
-             Google Apps Script 會寫入 Google 試算表。
-          */
-
           console.log(
             "預約資料已送出：",
             formData
           );
 
+
           showSuccess();
+
 
         } catch (error) {
 
@@ -1104,7 +1561,9 @@
             error
           );
 
+
           resetSubmitButton();
+
 
           showError(
             "資料送出時發生問題，請稍後再試，或直接聯絡機構。"
@@ -1128,6 +1587,7 @@
       errorMessage.style.display =
         "block";
 
+
       window.scrollTo({
         top:
           errorMessage.offsetTop - 30,
@@ -1145,7 +1605,8 @@
 
     function resetSubmitButton() {
 
-      submitButton.disabled = false;
+      submitButton.disabled =
+        false;
 
       submitButton.textContent =
         "確認送出參訪預約";
@@ -1162,8 +1623,12 @@
       form.parentElement.style.display =
         "none";
 
+      ageRejectedScreen.style.display =
+        "none";
+
       successScreen.style.display =
         "block";
+
 
       window.scrollTo({
         top: 0,
@@ -1174,7 +1639,31 @@
 
 
     /* =====================================
-       返回表單
+       顯示年齡不符合
+    ====================================== */
+
+    function showAgeRejected() {
+
+      form.parentElement.style.display =
+        "none";
+
+      successScreen.style.display =
+        "none";
+
+      ageRejectedScreen.style.display =
+        "block";
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =====================================
+       返回預約表單
     ====================================== */
 
     function backToForm() {
@@ -1182,15 +1671,56 @@
       successScreen.style.display =
         "none";
 
+      ageRejectedScreen.style.display =
+        "none";
+
       form.parentElement.style.display =
         "block";
 
+
       form.reset();
+
 
       visitDate.min =
         todayString;
 
+
       resetSubmitButton();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =====================================
+       從年齡拒絕畫面返回
+    ====================================== */
+
+    function backToFormFromRejected() {
+
+      ageRejectedScreen.style.display =
+        "none";
+
+      successScreen.style.display =
+        "none";
+
+      form.parentElement.style.display =
+        "block";
+
+
+      form.reset();
+
+
+      visitDate.min =
+        todayString;
+
+
+      resetSubmitButton();
+
 
       window.scrollTo({
         top: 0,
